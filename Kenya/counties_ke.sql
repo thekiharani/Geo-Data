@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `constituencies`
+-- Table structure for table `sub_counties`
 --
 
-CREATE TABLE `constituencies` (
+CREATE TABLE `sub_counties` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `county_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `constituencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `constituencies`
+-- Dumping data for table `sub_counties`
 --
 
-INSERT INTO `constituencies` (`id`, `county_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `sub_counties` (`id`, `county_id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Changamwe', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
 (2, 1, 'Jomvu', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
 (3, 1, 'Kisauni', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
@@ -100,7 +100,7 @@ INSERT INTO `constituencies` (`id`, `county_id`, `name`, `created_at`, `updated_
 (58, 12, 'Central Imenti', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
 (59, 12, 'South Imenti', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
 (60, 13, 'Maara', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
-(61, 13, 'Chuka/igambang\'om', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
+(61, 13, 'Chuka/Igambang\'om', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
 (62, 13, 'Tharaka', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
 (63, 14, 'Manyatta', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
 (64, 14, 'Runyenjes', '2021-08-23 12:24:19', '2021-08-23 12:24:19'),
@@ -405,7 +405,7 @@ INSERT INTO `counties` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `wards` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `constituency_id` bigint(20) UNSIGNED NOT NULL,
+  `sub_county_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -416,7 +416,7 @@ CREATE TABLE `wards` (
 -- Dumping data for table `wards`
 --
 
-INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
+INSERT INTO `wards` (`id`, `sub_county_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Port Reitz', '', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
 (2, 1, 'Kipevu', '', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
 (3, 1, 'Airport', '', '2021-08-23 12:24:18', '2021-08-23 12:24:18'),
@@ -1115,7 +1115,7 @@ INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `up
 (696, 140, 'Kaplamai', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20'),
 (697, 140, 'Motosiet', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20'),
 (698, 140, 'Cherangany/suwerwa', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20');
-INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
+INSERT INTO `wards` (`id`, `sub_county_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
 (699, 140, 'Chepsiro/kiptoror', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20'),
 (700, 140, 'Sitatunga', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20'),
 (701, 141, 'Moi\'s Bridge', '', '2021-08-23 12:24:20', '2021-08-23 12:24:20'),
@@ -1786,7 +1786,7 @@ INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `up
 (1366, 274, 'Kitisuru', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22'),
 (1367, 274, 'Parklands/highridge', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22'),
 (1368, 274, 'Karura', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22');
-INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
+INSERT INTO `wards` (`id`, `sub_county_id`, `name`, `alias`, `created_at`, `updated_at`) VALUES
 (1369, 274, 'Kangemi', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22'),
 (1370, 274, 'Mountain View', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22'),
 (1371, 275, 'Kilimani', '', '2021-08-23 12:24:22', '2021-08-23 12:24:22'),
@@ -1875,9 +1875,9 @@ INSERT INTO `wards` (`id`, `constituency_id`, `name`, `alias`, `created_at`, `up
 --
 
 --
--- Indexes for table `constituencies`
+-- Indexes for table `sub_counties`
 --
-ALTER TABLE `constituencies`
+ALTER TABLE `sub_counties`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1891,16 +1891,16 @@ ALTER TABLE `counties`
 --
 ALTER TABLE `wards`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `wards_constituency_id_foreign` (`constituency_id`);
+  ADD KEY `wards_sub_county_id_foreign` (`sub_county_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `constituencies`
+-- AUTO_INCREMENT for table `sub_counties`
 --
-ALTER TABLE `constituencies`
+ALTER TABLE `sub_counties`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
 
 --
@@ -1923,7 +1923,7 @@ ALTER TABLE `wards`
 -- Constraints for table `wards`
 --
 ALTER TABLE `wards`
-  ADD CONSTRAINT `wards_constituency_id_foreign` FOREIGN KEY (`constituency_id`) REFERENCES `constituencies` (`id`);
+  ADD CONSTRAINT `wards_sub_county_id_foreign` FOREIGN KEY (`sub_county_id`) REFERENCES `sub_counties` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
